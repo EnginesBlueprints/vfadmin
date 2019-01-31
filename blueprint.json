@@ -15,12 +15,68 @@
         "level": "alpha",
         "patch": 0
       }
-    }
+    },
+    "timestamp": "2019-02-01T08:40:10+11:00"
   },
   "software": {
     "base": {
+      "name": "vfadmin",
+      "framework": "rails5",
       "deployment_type": "web",
-      "http_protocol": "https_and_http"
-    }
+      "http_protocol": "https_only",
+      "memory": {
+        "required": 384,
+        "recommended": 384
+      }
+    },
+    "installed_packages": [
+      {
+        "name": "vfadmin",
+        "download_type": "http(s)",
+        "command_options": " -c http.sslVerify=false ",
+        "source_url": "https://gitea.jvodan.com/lachlan/vfadmin.git",
+        "destination": "./",
+        "extraction_command": "git",
+        "path_to_extracted": "vfadmin"
+      }
+    ],
+    "service_configurations": [
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "database/sql/mysql",
+        "variables": {
+          "database_name": "_Engines_Builder(engine_name)",
+          "database_host": "_Engines_System(mysql_host)",
+          "db_username": "_Engines_Builder(engine_name)",
+          "db_password": "_Engines_System(random(10))",
+          "collation": "utf8_general_ci",
+          "full_access": "false"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "filesystem/local/filesystem",
+        "variables": {
+          "service_name": "_Engines_Builder(engine_name)",
+          "volume_src": "",
+          "engine_path": "/home/fs/persist",
+          "permissions": "rw",
+          "user": "_Engines_Builder(data_uid)",
+          "group": "_Engines_Builder(data_gid)"
+        }
+      }
+    ],
+    "environment_variables": [
+      {
+        "name": "git_credentials",
+        "mandatory": true,
+        "ask_at_build_time": true,
+        "build_time_only": true,
+        "input": {
+          "type": "string",
+          "comment": "format user:password"
+        }
+      }
+    ]
   }
 }
