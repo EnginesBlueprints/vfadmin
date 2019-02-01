@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-02-01T08:40:10+11:00"
+    "timestamp": "2019-02-01T11:49:57+11:00"
   },
   "software": {
     "base": {
@@ -68,13 +68,21 @@
     ],
     "environment_variables": [
       {
-        "name": "git_credentials",
+        "name": "git_username",
         "mandatory": true,
         "ask_at_build_time": true,
         "build_time_only": true,
         "input": {
           "type": "string",
           "comment": "format user:password"
+        }
+      },
+      {
+        "name": "git_password",
+        "mandatory": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "password"
         }
       }
     ]
