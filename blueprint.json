@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-02-01T11:49:57+11:00"
+    "timestamp": "2019-02-01T13:36:48+11:00"
   },
   "software": {
     "base": {
@@ -27,6 +27,12 @@
       "memory": {
         "required": 384,
         "recommended": 384
+      }
+    },
+    "scripts": {
+      "install": {
+        "language": "sh",
+        "content": "#!/bin/bash\r\n\r\ngem env"
       }
     },
     "installed_packages": [
