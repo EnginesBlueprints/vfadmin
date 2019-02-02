@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-02-01T13:36:48+11:00"
+    "timestamp": "2019-02-02T14:34:13+11:00"
   },
   "software": {
     "base": {
@@ -30,6 +30,9 @@
       }
     },
     "scripts": {
+      "start": {
+        "content": "#!/bin/bash\r\nsleep 600"
+      },
       "install": {
         "language": "sh",
         "content": "#!/bin/bash\r\n\r\ngem env"
