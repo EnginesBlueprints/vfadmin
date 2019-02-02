@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-02-02T14:34:13+11:00"
+    "timestamp": "2019-02-02T17:25:00+11:00"
   },
   "software": {
     "base": {
@@ -25,17 +25,17 @@
       "deployment_type": "web",
       "http_protocol": "https_only",
       "memory": {
-        "required": 384,
-        "recommended": 384
+        "required": 512,
+        "recommended": 512
       }
     },
     "scripts": {
-      "start": {
-        "content": "#!/bin/bash\r\nsleep 600"
-      },
       "install": {
         "language": "sh",
         "content": "#!/bin/bash\r\n\r\ngem env"
+      },
+      "shutdown": {
+        "content": "#!/bin/bash\r\nsleep 600"
       }
     },
     "installed_packages": [
@@ -94,6 +94,21 @@
           "type": "password"
         }
       }
-    ]
+    ],
+    "framework_specific": {
+      "rake_tasks": [
+        {
+          "action": "db:migrate",
+          "always_run": true
+        },
+        {
+          "action": "db:seed"
+        },
+        {
+          "action": "assets:precompile",
+          "always_run": true
+        }
+      ]
+    }
   }
 }
