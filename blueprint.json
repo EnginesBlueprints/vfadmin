@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-02-02T17:25:00+11:00"
+    "timestamp": "2019-03-14T17:08:09+11:00"
   },
   "software": {
     "base": {
@@ -94,21 +94,6 @@
           "type": "password"
         }
       }
-    ],
-    "framework_specific": {
-      "rake_tasks": [
-        {
-          "action": "db:migrate",
-          "always_run": true
-        },
-        {
-          "action": "db:seed"
-        },
-        {
-          "action": "assets:precompile",
-          "always_run": true
-        }
-      ]
-    }
+    ]
   }
 }
