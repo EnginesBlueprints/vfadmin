@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-03-18T20:11:01+11:00"
+    "timestamp": "2019-03-19T08:45:41+11:00"
   },
   "software": {
     "base": {
@@ -98,6 +98,12 @@
         "input": {
           "type": "password"
         }
+      }
+    ],
+    "file_write_permissions": [
+      {
+        "path": "/home/app",
+        "recursive": true
       }
     ],
     "actionators": [
