@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-03-19T08:45:41+11:00"
+    "timestamp": "2019-03-19T08:47:42+11:00"
   },
   "software": {
     "base": {
@@ -33,7 +33,7 @@
     "scripts": {
       "start": {
         "language": "sh",
-        "content": "#!/bin/sh\r\n\r\ncd /home/app\r\ngit pull\r\nrake db:migrate\r\nrake assetsprecompile"
+        "content": "#!/bin/sh\r\n\r\ncd /home/app\r\ngit pull\r\nbundle exec rake db:migrate\r\nbundle exec rake assetsprecompile"
       },
       "install": {
         "language": "sh",
