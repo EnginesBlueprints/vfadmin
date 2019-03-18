@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-03-14T17:08:09+11:00"
+    "timestamp": "2019-03-18T17:49:36+11:00"
   },
   "software": {
     "base": {
@@ -24,12 +24,17 @@
       "framework": "rails5",
       "deployment_type": "web",
       "http_protocol": "https_only",
+      "continuous_deployment": true,
       "memory": {
         "required": 512,
         "recommended": 512
       }
     },
     "scripts": {
+      "start": {
+        "language": "sh",
+        "content": "#!/bin/sh\r\n\r\ncd /home/app\r\ngit pull\r\nrake db:migrate\r\nrake assetsprecompile"
+      },
       "install": {
         "language": "sh",
         "content": "#!/bin/bash\r\n\r\ngem env"
@@ -94,6 +99,39 @@
           "type": "password"
         }
       }
-    ]
+    ],
+    "actionators": [
+      {
+        "name": "run_rake",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "rake_task",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "title": "ie db:migrate"
+            }
+          }
+        ],
+        "script": {
+          "content": "#!/bin/sh\r\ncd /home/app\r\nbundle exec rake $rake_task"
+        }
+      }
+    ],
+    "framework_specific": {
+      "rake_tasks": [
+        {
+          "action": "db: migrate",
+          "always_run": true
+        },
+        {
+          "action": "db:seed"
+        },
+        {
+          "action": "assets:precompile"
+        }
+      ]
+    }
   }
 }
