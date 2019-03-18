@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-03-19T09:16:03+11:00"
+    "timestamp": "2019-03-19T10:15:38+11:00"
   },
   "software": {
     "base": {
@@ -103,7 +103,7 @@
     "template_files": [
       {
         "path": "app/config/action_mailer.rb",
-        "content": "config.action_mailer.delivery_method = :smtp\r\nconfig.action_mailer.smtp_settings = {\r\n  address:              'smtp.engines.internal',\r\n  port:                 25,\r\n  domain:               ENV['fqn'],\r\n  enable_starttls_auto: false }"
+        "content": "production:\r\n default_url_options:\r\n  host: _Engines_Builder(fqdn)\r\n email_delivery:\r\n  delivery_method: :smtp\r\n  smtp_settings:\r\n   address: _Engines_System(smtp_host)\r\n   port: 25\r\n   domain: _Engines_System(default_domain)\r\n   enable_starttls_auto : false\r\n   attachments_storage_path: /tmp"
       }
     ],
     "file_write_permissions": [
