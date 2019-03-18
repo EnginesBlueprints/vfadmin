@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-03-19T08:47:42+11:00"
+    "timestamp": "2019-03-19T09:16:03+11:00"
   },
   "software": {
     "base": {
@@ -98,6 +98,12 @@
         "input": {
           "type": "password"
         }
+      }
+    ],
+    "template_files": [
+      {
+        "path": "app/config/action_mailer.rb",
+        "content": "config.action_mailer.delivery_method = :smtp\r\nconfig.action_mailer.smtp_settings = {\r\n  address:              'smtp.engines.internal',\r\n  port:                 25,\r\n  domain:               ENV['fqn'],\r\n  enable_starttls_auto: false }"
       }
     ],
     "file_write_permissions": [
