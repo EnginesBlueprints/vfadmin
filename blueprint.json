@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-03-19T10:15:38+11:00"
+    "timestamp": "2019-05-10T16:49:58+10:00"
   },
   "software": {
     "base": {
@@ -46,12 +46,13 @@
     "installed_packages": [
       {
         "name": "vfadmin",
-        "download_type": "http(s)",
+        "download_type": "git",
         "command_options": " -c http.sslVerify=false ",
         "source_url": "https://gitea.jvodan.com/lachlan/vfadmin.git",
         "destination": "./",
         "extraction_command": "git",
-        "path_to_extracted": "vfadmin"
+        "path_to_extracted": "vfadmin",
+        "authentication": "credentials"
       }
     ],
     "service_configurations": [
@@ -76,7 +77,8 @@
           "engine_path": "/home/fs/persist",
           "permissions": "rw",
           "user": "_Engines_Builder(data_uid)",
-          "group": "_Engines_Builder(data_gid)"
+          "group": "_Engines_Builder(data_gid)",
+          "fw_user": "_Engines_Builder(cont_user_id)"
         }
       }
     ],
